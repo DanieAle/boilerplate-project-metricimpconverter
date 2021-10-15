@@ -14,12 +14,12 @@ suite('Unit Tests', function(){
         assert.strictEqual(convertHandler.getNum("mi"),1,"Sould be 1")
     });
     test('isValidUnit',function(){
-        assert.strictEqual('gal',convertHandler.getUnit('5.5gal'));
-        assert.strictEqual('lbs',convertHandler.getUnit('5.5lbs'));
-        assert.strictEqual('mi',convertHandler.getUnit('5.5mi'));
-        assert.strictEqual('l',convertHandler.getUnit('5.5L'));
-        assert.strictEqual('km',convertHandler.getUnit('5.5km'));
-        assert.strictEqual('invalid unit',convertHandler.getUnit('t'));
+        assert.strictEqual(convertHandler.getUnit('5.5gal'),'gal');
+        assert.strictEqual(convertHandler.getUnit('5.5lbs'),'lbs');
+        assert.strictEqual(convertHandler.getUnit('5.5mi'),'mi');
+        assert.strictEqual(convertHandler.getUnit('5.5L'),'L');
+        assert.strictEqual(convertHandler.getUnit('5.5km'),'km',);
+        assert.strictEqual(convertHandler.getUnit('t'),'invalid unit');
     });
     test('isConverted',function(){
         assert.strictEqual('L',convertHandler.getReturnUnit('gal'));
