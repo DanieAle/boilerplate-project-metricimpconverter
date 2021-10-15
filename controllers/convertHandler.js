@@ -9,7 +9,7 @@ function ConvertHandler() {
   }
   this.getNum = function(input) {
     let value;
-    if(/[/d\//d\//d]/i.test(input)=== true){
+    if(/(\d\/\d\/\d)/.test(input)=== true){
       return "invalid number";
     }
     if(input.match(/\d/g) === null){
@@ -28,14 +28,14 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    let u = input.match(/[a-z]+/)[0];
+    let u = input.match(/[a-z]+/i)[0];
     let result = "invalid unit";
     for(let unit in obj){
       if(u.toLocaleLowerCase() === unit.toString() && result === "invalid unit"){
         result = u;
       }
     }
-    return result;
+    return result.toLocaleLowerCase();
   };
   
   this.getReturnUnit = function(initUnit) {
