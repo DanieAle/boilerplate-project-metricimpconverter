@@ -9,10 +9,11 @@ function ConvertHandler() {
   }
   this.getNum = function(input) {
     let value;
-    if(/(\/\d*\.?\d*\/)/.test(input)=== true){
+    let count;
+    if(/\/+\d+?\/+|\/+\d+.?\d+?\/+|\/{2,}/g.test(input)=== true){
       return "invalid number";
     }
-    if(input.match(/\d/g) === null){
+    if(/\d/.test(input) === false){
       return 1;
     }
     let operation = input.split(/[a-z]/i)[0];
@@ -98,7 +99,7 @@ function ConvertHandler() {
         result = initNum/miToKm;
         break;
       case 'gal':
-        result = initNum/galToL;
+        result = initNum*galToL;
         break;
       case 'lbs':
         result = initNum/lbsToKg;
