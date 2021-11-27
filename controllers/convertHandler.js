@@ -113,7 +113,7 @@ function ConvertHandler() {
         result = initNum*miToKm;
         break;
       case 'l':
-        result = initNum* galToL;
+        result = initNum / galToL;
         break;
       case 'lbs':
         result = initNum*lbsToKg;
