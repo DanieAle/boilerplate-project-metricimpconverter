@@ -33,11 +33,11 @@ function ConvertHandler() {
     let result = "invalid unit";
     for(let unit in obj){
       if(u.toLocaleLowerCase() === unit.toString().toLocaleLowerCase() && result === "invalid unit"){
-        if(u === 'l'){
+        if(u === 'l' || u === 'L'){
           result = 'L';
         }
         else{
-        result = u;
+        result = u.toLocaleLowerCase();
         }
       }
     }
@@ -82,7 +82,7 @@ function ConvertHandler() {
         result = "pounds";
         break;
       case 'km':
-        result = "kilometers;"
+        result = "kilometers"
         break;
       case 'l':
         result = "liters"
@@ -124,9 +124,6 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
-    if(initUnit === 'l'){
-      initUnit = 'L';
-    }
     return `${initNum} ${this.spellOutUnit(initUnit.toLocaleLowerCase())} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit.toLocaleLowerCase())}`
     };
   
