@@ -45,17 +45,18 @@ app.get('/api/convert:input?',(req,res) =>{
     }
     res.send('invalid number');
   }
-  if(unit === "invalid unit"){
+  else if(unit === "invalid unit"){
     res.send('invalid unit');
   }
   else{
   converted = convertHandler.convert(num,unit);
   convertedUnit = convertHandler.getReturnUnit(unit);
   str = convertHandler.getString(num,unit,converted,convertedUnit);
+  console.log(converted.toFixed(5));
   res.json({
     initNum: num,
     initUnit: unit,
-    returnNum: converted.toFixed(5),
+    returnNum: parseFloat(converted.toFixed(5)),
     returnUnit: convertedUnit,
     string: str
   });
