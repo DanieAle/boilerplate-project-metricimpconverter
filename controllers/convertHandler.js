@@ -33,7 +33,12 @@ function ConvertHandler() {
     let result = "invalid unit";
     for(let unit in obj){
       if(u.toLocaleLowerCase() === unit.toString().toLocaleLowerCase() && result === "invalid unit"){
+        if(u === 'l'){
+          result = 'L';
+        }
+        else{
         result = u;
+        }
       }
     }
     return result;
@@ -95,22 +100,22 @@ function ConvertHandler() {
     const miToKm = 1.60934;
     let result;
     switch(initUnit.toLocaleLowerCase()){
-      case 'mi':
+      case 'km':
         result = initNum/miToKm;
         break;
       case 'gal':
         result = initNum*galToL;
         break;
-      case 'lbs':
+      case 'kg':
         result = initNum/lbsToKg;
         break;
-      case 'km':
+      case 'mi':
         result = initNum*miToKm;
         break;
       case 'l':
         result = initNum* galToL;
         break;
-      case 'kg':
+      case 'lbs':
         result = initNum*lbsToKg;
         break;
     }
@@ -119,6 +124,9 @@ function ConvertHandler() {
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
+    if(initUnit === 'l'){
+      initUnit = 'L';
+    }
     return `${initNum} ${this.spellOutUnit(initUnit.toLocaleLowerCase())} converts to ${returnNum.toFixed(5)} ${this.spellOutUnit(returnUnit.toLocaleLowerCase())}`
     };
   
