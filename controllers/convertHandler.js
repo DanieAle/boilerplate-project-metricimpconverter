@@ -82,7 +82,7 @@ function ConvertHandler() {
         result = "pounds";
         break;
       case 'km':
-        result = "kilometers"
+        result = "kilometers";
         break;
       case 'l':
         result = "liters"
